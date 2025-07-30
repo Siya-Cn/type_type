@@ -2,7 +2,6 @@
 
 interface KeyboardProps {
   currentChar: string;
-  fingerPositions: { [key: string]: string };
   onKeyPress: (key: string) => void;
   userInput: string;
   targetText: string;
@@ -78,7 +77,7 @@ const fingerColors: { [key: string]: string } = {
   '拇指': 'bg-gray-200 border-gray-400'
 };
 
-export default function Keyboard({ currentChar, fingerPositions, onKeyPress, userInput, targetText }: KeyboardProps) {
+export default function Keyboard({ currentChar, onKeyPress, userInput, targetText }: KeyboardProps) {
   const getKeyClass = (key: string, finger: string) => {
     const lowerChar = currentChar.toLowerCase();
     const isCurrent = key.toLowerCase() === lowerChar;

@@ -179,7 +179,7 @@ export default function Stats() {
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 mb-8">
           <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-6">WPM 趋势</h3>
           <div className="h-64 flex items-end justify-between space-x-2">
-            {mockSessions.slice().reverse().map((session, index) => (
+            {mockSessions.slice().reverse().map((session) => (
               <div key={session.id} className="flex-1 flex flex-col items-center">
                 <div 
                   className="w-full bg-gradient-to-t from-blue-500 to-blue-300 rounded-t"
@@ -260,14 +260,14 @@ export default function Stats() {
                 <span className="text-2xl">🚀</span>
               </div>
               <p className="text-white text-sm font-medium">速度达人</p>
-              <p className="text-yellow-200 text-xs">WPM > 40</p>
+              <p className="text-yellow-200 text-xs">WPM {'>'} 40</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-2">
                 <span className="text-2xl">🎯</span>
               </div>
               <p className="text-white text-sm font-medium">精准射手</p>
-              <p className="text-yellow-200 text-xs">准确率 > 95%</p>
+              <p className="text-yellow-200 text-xs">准确率 {'>'} 95%</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-2">
@@ -281,7 +281,7 @@ export default function Stats() {
                 <span className="text-2xl">📝</span>
               </div>
               <p className="text-white text-sm font-medium">打字大师</p>
-              <p className="text-yellow-200 text-xs">总字符 > 10,000</p>
+              <p className="text-yellow-200 text-xs">总字符 {'>'} 10,000</p>
             </div>
           </div>
         </div>

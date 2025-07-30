@@ -1,11 +1,13 @@
 'use client';
 
+type FingerType = '左手小指' | '左手无名指' | '左手中指' | '左手食指' | '右手食指' | '右手中指' | '右手无名指' | '右手小指' | '拇指';
+
 interface FingerGuideProps {
   currentChar: string;
-  fingerHint: string;
+  fingerHint: FingerType | string;
 }
 
-const fingerIcons = {
+const fingerIcons: Record<FingerType, string> = {
   '左手小指': '👆',
   '左手无名指': '👆',
   '左手中指': '👆',
@@ -17,7 +19,7 @@ const fingerIcons = {
   '拇指': '👍'
 };
 
-const fingerColors = {
+const fingerColors: Record<FingerType, string> = {
   '左手小指': 'text-red-600 bg-red-100 border-red-300',
   '左手无名指': 'text-orange-600 bg-orange-100 border-orange-300',
   '左手中指': 'text-yellow-600 bg-yellow-100 border-yellow-300',
@@ -41,8 +43,8 @@ export default function FingerGuide({ currentChar, fingerHint }: FingerGuideProp
            </div>
          </div>
         
-                 <div className={`inline-flex items-center gap-3 px-6 py-3 rounded-full border-2 ${fingerColors[fingerHint] || 'text-gray-600 bg-gray-100 border-gray-300'} animate-glow`}>
-           <span className="text-2xl">{fingerIcons[fingerHint] || '👆'}</span>
+                 <div className={`inline-flex items-center gap-3 px-6 py-3 rounded-full border-2 ${fingerColors[fingerHint as FingerType] || 'text-gray-600 bg-gray-100 border-gray-300'} animate-glow`}>
+           <span className="text-2xl">{fingerIcons[fingerHint as FingerType] || '👆'}</span>
            <span className="text-lg font-semibold">使用: {fingerHint}</span>
          </div>
         

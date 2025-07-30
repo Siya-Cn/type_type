@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Keyboard from '@/components/Keyboard';
 import FingerGuide from '@/components/FingerGuide';
 import Tutorial from '@/components/Tutorial';
@@ -62,7 +62,7 @@ export default function Practice() {
   const [userInput, setUserInput] = useState('');
   const [isStarted, setIsStarted] = useState(false);
   const [isFinished, setIsFinished] = useState(false);
-  const [startTime, setStartTime] = useState(0);
+
   const [stats, setStats] = useState<TypingStats>({
     wpm: 0,
     accuracy: 0,
@@ -77,14 +77,12 @@ export default function Practice() {
 
   const startTyping = () => {
     setIsStarted(true);
-    setStartTime(Date.now());
   };
 
   const resetTyping = () => {
     setUserInput('');
     setIsStarted(false);
     setIsFinished(false);
-    setStartTime(0);
     setStats({
       wpm: 0,
       accuracy: 0,
@@ -246,7 +244,6 @@ export default function Practice() {
             </div>
             <Keyboard 
               currentChar={currentChar} 
-              fingerPositions={fingerPositions}
               onKeyPress={handleKeyPress}
               userInput={userInput}
               targetText={currentText}
